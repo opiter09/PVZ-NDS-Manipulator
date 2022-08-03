@@ -28,6 +28,8 @@ if (len(sys.argv) > 2):
     newFile = open("OUTPUT " + sys.argv[1].split("\\")[-1], "ab")
     newFile.write(bytE[0:offset])
     newFile.write(needlE[0:size])
+    if (len(needlE) < size):
+            newFile.write(bytes(size - len(needlE)))
     newFile.write(bytE[(offset + size):len(bytE)])
     newFile.close()
     exit()
