@@ -8,3 +8,5 @@ the file you entered inside it.
 
 WARNING: do not rename the files! The name is how the program knows where to insert the file so that it overwrites itself, as it were,
 and nothing else is messed up.
+
+Also, you cannot change fize sizes. Larger files are truncated, while smaller files get a bunch of 0x00's added to the end. If this becomes a problem, do let me know.
