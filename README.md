@@ -7,5 +7,4 @@ This program uses the Command Line, although a helpful drag and drog batch file 
 the file you entered inside it.
 
 WARNING: do not rename the files! The name is how the program knows where to insert the file so that it overwrites itself, as it were,
-and nothing else is messed up. Also, currently filze sizes cannot be changed. Almost all the files are graphics, so this shouldn't be a problem, but let me know if
-something comes up.
+and nothing else is messed up.
