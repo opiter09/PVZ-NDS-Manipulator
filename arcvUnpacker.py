@@ -39,8 +39,6 @@ numberOfFiles = int.from_bytes(bytE[4:8], "little")
 for i in range(numberOfFiles):
     offset = int.from_bytes(bytE[(16 + (i * 8)):(16 + (i * 8) + 4)], "little")
     size = int.from_bytes(bytE[(16 + (i * 8) + 4):(16 + (i * 8) + 8)], "little")
-    if (size < 5):
-        break
     data = bytE[offset:(offset + size)]
     
     extension = ".bin"
