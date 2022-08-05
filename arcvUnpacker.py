@@ -21,7 +21,7 @@ if (len(sys.argv) > 2):
     needlE = injectFile.read()
     injectFile.close()
     
-    index = int(sys.argv[2].split("_")[1].split(".")[0])
+    index = int(sys.argv[2].split("_")[1].split(".")[0]) - 1
     offset = int.from_bytes(bytE[(16 + (index * 8)):(16 + (index * 8) + 4)], "little")
     size = int.from_bytes(bytE[(16 + (index * 8) + 4):(16 + (index * 8) + 8)], "little")
     
