@@ -1,0 +1,2 @@
+In the PVZ NDS google doc, the only thing found so far is data for plant cost and whatnot. I have found the area mentioned there among the split files, namely in
+arm9.bin at address 0xE681C.
