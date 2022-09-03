@@ -1,2 +1,7 @@
 In the PVZ NDS google doc, the only thing found so far is data for plant cost and whatnot. I have found the area mentioned there among the split files, namely in
 arm9.bin at address 0xE681C.
+
+There and in the next three bytes are the Sun Cost for Peashooter, and then recharge, something unknown, and Action Rate, all as four-byte little-endian numbers. Then 
+comes Sunflower's data, and so it goes in an order strikingly incongruous with the list of plant names that comes before this section.
+
+Thanks to whoever made the PVZ NDS google doc for starting me on this journey.
