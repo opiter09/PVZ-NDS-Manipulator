@@ -62,8 +62,8 @@ for i in range(numberOfFiles):
     elif (int.from_bytes(data[0:4], "big") == 1381254734):
         extension = ".NFTR"
 
-    if (size < 10000000) and (offset > 0) and ((offset + size) < len(bytE)):
-        newFile = open(directory + "/" + str(offset) + "_" + str(i + 1).zfill(4) + extension, "wb")
+    if (size < 1000000) and (offset > 0) and ((offset + size) < len(bytE)):
+        newFile = open(directory + "/" + str(offset) + "_" + str(offset + size) + "__" + str(i + 1).zfill(4) + extension, "wb")
         newFile.write(data)
         newFile.close()
     else:
@@ -99,7 +99,7 @@ for i in range(skip):
     elif (int.from_bytes(data[0:4], "big") == 1381254734):
         extension = ".NFTR"
 
-    if (size < 10000000) and (offset > 0) and ((offset + size) < len(bytE)):
-        newFile = open(directory + "/" + str(offset) + "_" + str(j + 1).zfill(4) + extension, "wb")
+    if (size < 1000000) and (offset > 0) and ((offset + size) < len(bytE)):
+        newFile = open(directory + "/" + str(offset) + "_" + str(offset + size) + "__" + str(j + 1).zfill(4) + extension, "wb")
         newFile.write(data)
         newFile.close()
