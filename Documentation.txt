@@ -1,10 +1,13 @@
-In the PVZ NDS google doc, the only thing found so far is data for plant cost and whatnot. I have found the area mentioned there among the split files, namely in
-arm9.bin at address 0xE681C.
+In the PVZ NDS google doc, the only thing found so far is data for plant cost and whatnot. I have
+found the area mentioned there among the non-pack files, namely in arm9.bin at address 0xE681C.
 
-There and in the next three bytes are the Sun Cost for Peashooter, and then recharge, something unknown, and Action Rate, all as four-byte little-endian numbers. Then 
-comes Sunflower's data, and so it goes in an order strikingly incongruous with the list of plant names that comes before this section.
+There and in the next three bytes are the Sun Cost for Peashooter, and then recharge, something
+unknown, and Action Rate, all as four-byte little-endian numbers. Then comes Sunflower's data,
+and so it goes in an order strikingly incongruous with the list of plant names that comes before
+this section.
 
-The equivalent capitalized list of zombies starts at 0x0E3A3C in arm9.bin. The zombie data presumably starts from 0x0E3BFC, and each zombie appears to get four bytes.
-Beyond that, who knows?
+The equivalent capitalized list of zombies starts at 0x0E3A3C in arm9.bin. The zombie data
+presumably starts from 0x0E3BFC, and each zombie appears to get four bytes. Beyond that, who knows?
 
-Thanks to whoever made the PVZ NDS google doc for starting me on this journey (of documenting; this ARCV unpacker had been around for a while before I found the doc).
+Thanks to whoever made the PVZ NDS google doc for starting me on this journey (of documenting;
+this ARCV unpacker had been around for a while before I found the doc).
