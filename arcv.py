@@ -2,38 +2,41 @@ import sys
 import math
 import os
 
-directory = "output_" + sys.argv[1].split("\\")[-1].split(".")[0]
+directory = "output_" + sys.argv[2].split("\\")[-1].split(".")[0]
 try:
     os.mkdir(directory)
 except OSError as error:
     pass
         
-inputFile = open(sys.argv[1], "rb")
+inputFile = open(sys.argv[2], "rb")
 bytE = inputFile.read()
 inputFile.close()
 
 if (int.from_bytes(bytE[0:4], "big") != 1095910230):
     print("Wrong anime, dummy!")
 else:
-    if (len(sys.argv) > 2):
-        injectFile = open(sys.argv[2], "rb")
-        needlE = injectFile.read()
-        injectFile.close()
-        
-        index = int(sys.argv[2].split("_")[-1].split(".")[0]) - 1
-        offset = int.from_bytes(bytE[(16 + (index * 8)):(16 + (index * 8) + 4)], "little")
-        size = int.from_bytes(bytE[(16 + (index * 8) + 4):(16 + (index * 8) + 8)], "little")
-        
-        newFile = open("OUTPUT " + sys.argv[1].split("\\")[-1], "wb")
-        newFile.close()
-        newFile = open("OUTPUT " + sys.argv[1].split("\\")[-1], "ab")
-        newFile.write(bytE[0:offset])
-        newFile.write(needlE[0:size])
-        if (len(needlE) < size):
-                newFile.write(bytes(size - len(needlE)))
-        newFile.write(bytE[(offset + size):len(bytE)])
-        newFile.close()
-    else:
+    if (sys.argv[1] == "-r"):
+        for root, dirs, files in os.walk(directory):
+            for file in files:
+                full = directory + "/" + file
+                injectFile = open(full, "rb")
+                needlE = injectFile.read()
+                injectFile.close()
+                
+                index = int(full.split("_")[-1].split(".")[0]) - 1
+                offset = int.from_bytes(bytE[(16 + (index * 8)):(16 + (index * 8) + 4)], "little")
+                size = int.from_bytes(bytE[(16 + (index * 8) + 4):(16 + (index * 8) + 8)], "little")
+                
+                newFile = open("OUTPUT_" + sys.argv[2].split("\\")[-1], "wb")
+                newFile.close()
+                newFile = open("OUTPUT_" + sys.argv[2].split("\\")[-1], "ab")
+                newFile.write(bytE[0:offset])
+                newFile.write(needlE[0:size])
+                if (len(needlE) < size):
+                        newFile.write(bytes(size - len(needlE)))
+                newFile.write(bytE[(offset + size):len(bytE)])
+                newFile.close()
+    elif (sys.argv[1] == "-u"):
         numberOfFiles = int.from_bytes(bytE[4:8], "little")
         skip = 0
         for i in range(numberOfFiles):
